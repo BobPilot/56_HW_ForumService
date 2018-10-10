@@ -54,8 +54,8 @@ public class ForumController {
         return forumService.addLike(id);
     }
 
-    //  localhost:8080/forum/post/ID/comment
-    @PostMapping(Link.POST + "/{id}" + Link.COMMENT)
+    //  localhost:8080/forum/post/ID
+    @PostMapping(Link.POST + "/{id}")
     public Post addComment(@PathVariable String id, @RequestBody NewCommentDto newComment) {
         return forumService.addComment(id, newComment);
     }

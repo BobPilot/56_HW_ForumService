@@ -5,7 +5,6 @@ public interface Link {
     String FORUM = "/forum";
 
     String POST = "/post";
-    String COMMENT = "/comment";
     String LIKE = "/like";
     String SEARCH = "/search";
 
