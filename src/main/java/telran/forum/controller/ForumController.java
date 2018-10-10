@@ -1,7 +1,6 @@
 package telran.forum.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
 import telran.forum.api.Link;
 import telran.forum.dto.*;
@@ -9,7 +8,6 @@ import telran.forum.entity.Post;
 import telran.forum.service.IForumService;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,8 +43,8 @@ public class ForumController {
     }
 
     //  localhost:8080/forum/post
-    @PutMapping(Link.POST)
-    public Post updatePost(@RequestBody PostUpdateDto updatePost) {
+    @PutMapping(Link.POST + "/{id}")
+    public Post updatePost(@PathVariable String id, @RequestBody PostUpdateDto updatePost) {
         return forumService.updatePost(updatePost);
     }
 
@@ -74,7 +72,7 @@ public class ForumController {
         return forumService.findByAuthor(auth);
     }
 
-    // localhost:8080/forum/search/date/2018-10-09t2018-10-10
+    // localhost:8080/forum/search/date/2018-10-09x2018-10-10
     @GetMapping(Link.SEARCH + Link.DATE + "/{period}")
     public Iterable<Post> findByDate(@PathVariable String period, HttpServletResponse response) {
 

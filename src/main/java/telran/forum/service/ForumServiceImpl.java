@@ -49,7 +49,7 @@ public class ForumServiceImpl implements IForumService {
             post.setContent(updatePost.getContent());
             forumRepository.save(post);
         }
-        return post; // We return old post, is it?
+        return post;
     }
 
     @Override
